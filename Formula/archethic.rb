@@ -10,8 +10,8 @@ class Archethic < Formula
   depends_on "git"
 
   on_macos do
-    url "https://github.com/archethic-foundation/archethic-cli/archive/refs/tags/v1.2.2.tar.gz"
-    sha256 "639d13131edecd25ec10e9b097ab831df81a1937310ab627c3c67c0cdaaf24a4"
+    url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.2/archethic-cli_1.2.2_Darwin_all.tar.gz"
+    sha256 "dec3aeefcfb0c1a4738c9a62e8fc7c96d879ce8c89f508f543655d1650e3046b"
 
     def install
       bin.install "archethic-cli"
@@ -19,20 +19,24 @@ class Archethic < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.1/archethic-cli_1.2.1_Linux_arm64.tar.gz"
-      sha256 "0699868dccbf5e4211b1777e9d940886fdc9b2ae57063990ec57767b1811b2b5"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.2/archethic-cli_1.2.2_Linux_x86_64.tar.gz"
+        sha256 "837c990edec6af63a71c6721583c3dad76b30d9f5f6c68fe4dc538d0e98a53c5"
 
-      def install
-        bin.install "archethic"
+        def install
+          bin.install "archethic"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.1/archethic-cli_1.2.1_Linux_x86_64.tar.gz"
-      sha256 "d63b4bf205124a089b27d722606b6ec1b6b88c8f69d05ac426f133a741cbaf41"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.2/archethic-cli_1.2.2_Linux_arm64.tar.gz"
+        sha256 "84bebb799dcfd40567c600009c8caa0abe8758026ad15bf2836ba0801e6c48b0"
 
-      def install
-        bin.install "archethic"
+        def install
+          bin.install "archethic"
+        end
       end
     end
   end
