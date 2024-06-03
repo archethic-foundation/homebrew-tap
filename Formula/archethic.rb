@@ -5,13 +5,13 @@
 class Archethic < Formula
   desc ""
   homepage "https://github.com/archethic-foundation/archethic-cli"
-  version "1.2.1"
+  version "1.2.2"
 
   depends_on "git"
 
   on_macos do
-    url "https://github.com/archethic-foundation/archethic-cli/releases/download/v1.2.1/archethic-cli_1.2.1_Darwin_all.tar.gz"
-    sha256 "30e01da2fb1e29f098ca1ed334c7ffcaf400332bf34e296be5a0f6b0ea870499"
+    url "https://github.com/archethic-foundation/archethic-cli/archive/refs/tags/v1.2.2.tar.gz"
+    sha256 "639d13131edecd25ec10e9b097ab831df81a1937310ab627c3c67c0cdaaf24a4"
 
     def install
       bin.install "archethic-cli"
